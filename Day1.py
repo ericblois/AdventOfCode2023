@@ -78,8 +78,7 @@ for _ in range(100):
                 break
             elif char in letters:
                 for word in letters[char]:
-                    j = line.find(word)
-                    if j == i:
+                    if line[i:i+len(word)] == word:
                         num += mapping[word]
                         stop = True
                         break
@@ -92,8 +91,8 @@ for _ in range(100):
                 break
             elif char in letters:
                 for word in letters[char]:
-                    j = line.rfind(word)
-                    if j == len(line) - i - 1:
+                    j = len(line)-i-1
+                    if line[j:j+len(word)] == word:
                         num += mapping[word]
                         stop = True
                         break
